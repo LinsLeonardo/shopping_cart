@@ -1,0 +1,44 @@
+div {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  top: 0;
+
+  align-items: center;
+  justify-items: end;
+  gap: 100px;
+  /* background-color: #cd8d7b; */
+
+  color: white;
+  font-weight: bold;
+  z-index: 1;
+  background: linear-gradient(45deg, #084177, #687466, #cd8d7b, #ffbc7d);
+  background-size: 300% 300%;
+  animation: colors 15s ease infinite;
+}
+
+@keyframes colors {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.cart {
+  justify-self: start;
+}
+
+img {
+  color: white;
+}
+
+.home {
+  font-size: 1.2em;
+}
