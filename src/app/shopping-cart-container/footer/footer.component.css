@@ -46,3 +46,9 @@ a {
 a:hover {
   filter: brightness(0);
 }
+
+@media screen and (max-width: 426px) {
+  p {
+    margin-left: 30px;
+  }
+}

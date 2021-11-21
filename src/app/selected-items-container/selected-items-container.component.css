@@ -7,3 +7,15 @@ div {
   margin: 70px auto;
   margin-bottom: 15px;
 }
+
+@media screen and (max-width: 426px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 427px) and (max-width: 769px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
