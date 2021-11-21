@@ -78,18 +78,27 @@ button:hover {
     width: 80%;
     margin: 20px auto;
     text-align: center;
+    padding-top: 10px;
   }
 
   .operation {
-    margin-left: calc(35%);
+    /* margin-top: 5%; */
+    margin: 5px 0 15px 0;
+    margin-left: calc(34%);
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+  h3,
+  .total {
+    font-size: 1.3em;
   }
   .operation > p {
     margin: 0 20px;
   }
-}
 
-/* @media screen and (min-width: 427px) and (max-width: 769px) {
-  .container {
-    grid-template-columns: 1fr 1fr;
+  .details {
+    margin-top: 5px;
   }
-} */
+}
