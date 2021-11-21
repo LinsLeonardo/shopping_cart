@@ -1,0 +1,9 @@
+* {
+  min-height: 100vh;
+}
+
+div {
+  max-width: 600px;
+  margin: 70px auto;
+  margin-bottom: 15px;
+}

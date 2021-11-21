@@ -2,6 +2,9 @@ div {
   text-align: center;
   background-color: rgba(255, 255, 255, 0.164);
   padding: 20px;
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
 }
 h3 {
   font-style: italic;
@@ -18,13 +21,16 @@ h2 {
 button {
   border: none;
   margin: 10px 0 0 0;
-  width: 8em;
+
+  width: 60%;
   height: 2em;
   background-color: rgba(255, 255, 255, 0.363);
   color: white;
   box-shadow: 2px 2px 15px 1px rgba(255, 255, 255, 0.294);
   font-size: 1.1em;
   font-weight: bold;
+  align-self: center;
+  justify-self: center;
 }
 
 button:hover {
@@ -35,4 +41,8 @@ button:hover {
 .preco {
   font-style: normal;
   margin-top: 10px;
+}
+
+img {
+  align-self: center;
 }

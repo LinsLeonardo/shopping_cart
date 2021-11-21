@@ -1,22 +1,17 @@
-div {
+.footer {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  height: 50px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-
-  align-items: center;
-  justify-items: end;
-  gap: 100px;
-
+  position: relative;
+  grid-template-columns: repeat(5, 1fr);
   color: white;
+  height: 60px;
+  width: 100%;
   font-weight: bold;
   z-index: 1;
   background: linear-gradient(45deg, #084177, #687466, #cd8d7b, #ffbc7d);
   background-size: 300% 300%;
-  border-bottom: 2px solid white;
+  border-top: 2px solid white;
   animation: colors 15s ease infinite;
+  align-items: center;
 }
 
 @keyframes colors {
@@ -31,22 +26,23 @@ div {
   }
 }
 
-.cart {
-  justify-self: start;
-}
-
-img {
-  color: white;
-}
-
-.home {
+p {
+  font-style: italic;
   font-size: 1.2em;
+  font-weight: bold;
+  grid-column: span 2;
+  justify-self: end;
 }
 
-nav {
-  cursor: pointer;
+.logos {
+  grid-column: span 3;
+  justify-self: center;
 }
 
-nav:hover {
+a {
+  margin-right: 40px;
+}
+
+a:hover {
   filter: brightness(0);
 }

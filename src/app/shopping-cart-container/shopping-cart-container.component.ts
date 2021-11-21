@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AllAlbumsService } from '../all-albums.service';
 
 @Component({
   selector: 'app-shopping-cart-container',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShoppingCartContainerComponent implements OnInit {
 
-  constructor() { }
+
+  allAlbums =  this.serviceAlbums.allAlbums
+
+  constructor(private serviceAlbums: AllAlbumsService) { }
 
   ngOnInit(): void {
   }
+
 
 }

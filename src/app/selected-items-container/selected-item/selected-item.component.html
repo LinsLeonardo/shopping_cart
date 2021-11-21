@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="img">
+    <img [src]="currentAlbum.url" [alt]="currentAlbum.artist" width="150" height="150">
+  </div>
+  <div class="details">
+    <h2>{{currentAlbum.title}} </h2>
+    <h3>{{currentAlbum.artist}}</h3>
+    <p>Preço Unitário - R$ {{currentAlbum.price}},00</p>
+    <p class="total">Total: R$ {{totalPrice}},00</p>
+
+    <div class="operation">
+      <button class="operator" (click)="removeUnity()">-</button>
+      <p>{{currentAlbum.amount}}</p>
+      <button class="operator" (click)="addUnity()">+</button>
+    </div>
+
+  </div>
+</div>

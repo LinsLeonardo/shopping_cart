@@ -1,0 +1,33 @@
+div {
+  display: grid;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.363);
+  height: 130px;
+  justify-content: center;
+  color: white;
+}
+
+button {
+  width: 60%;
+  height: 3em;
+  background-color: rgba(255, 255, 255, 0.363);
+  color: white;
+  box-shadow: 2px 2px 15px 1px rgba(255, 255, 255, 0.294);
+  font-size: 1.1em;
+  font-weight: bold;
+  align-self: center;
+  justify-self: center;
+  border-style: none;
+  margin-bottom: 10px;
+}
+
+button:hover {
+  background-color: #cd8d7b;
+  font-size: 1.1em;
+}
+
+p {
+  margin-top: 10px;
+  font-size: 1.5em;
+  font-weight: bold;
+}
