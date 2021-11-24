@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AllAlbumsService } from '../all-albums.service';
 import { StorageHandlerService } from '../storage-handler.service';
 
 
@@ -9,14 +10,18 @@ import { StorageHandlerService } from '../storage-handler.service';
 })
 export class SelectedItemsContainerComponent implements OnInit {
 
+  abs!: any; 
   allSelectedItems!: any[];
-  constructor(private localStorageService: StorageHandlerService) {
-    
+  constructor(private localStorageService: StorageHandlerService, private albumsService: AllAlbumsService) {
+    this.allSelectedItems = albumsService.selectedAlbums
    }
 
   ngOnInit(): void {
-    this.allSelectedItems = this.localStorageService.loadFromLocalStorage(); 
   }
 
+  reloadData(){
+    this.allSelectedItems = this.albumsService.selectedAlbums
+    console.log(this.allSelectedItems)
 
+  }
 }

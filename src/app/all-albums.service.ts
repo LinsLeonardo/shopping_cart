@@ -1,11 +1,16 @@
 import { Injectable } from '@angular/core';
 
+import { Location } from '@angular/common';
+import { StorageHandlerService } from './storage-handler.service';
+
+
 // TODO: COLOCAR ID EM TODOS OS ITEMS 
 
 @Injectable({
   providedIn: 'root'
 })
 export class AllAlbumsService {
+  costShop: number = 0
 
   allAlbums: any[] = [
     {id: 1, amount: 0, url: '../../assets/adele19.jpg',title: '19', artist: 'Adele', price: 45.00}, {id: 2, amount: 0, url: '../../assets/adele21.jpg',title: '21', artist: 'Adele', price: 48.00}, 
@@ -22,7 +27,54 @@ export class AllAlbumsService {
     {id: 14, amount: 0, url: '../../assets/melodrama.jpg',title: 'Melodrama', artist: 'Lorde', price: 50.00},
     {id: 15, amount: 0, url: '../../assets/lordesolarpower.png',title: 'Solar Power', artist: 'Lorde', price: 30.00},
     {id: 16, amount: 0, url: '../../assets/oliviasour.jpg',title: 'SOUR', artist: 'Olivia Rodrigo', price: 50.00},]
-  constructor() { }
 
+  selectedAlbums: any[] = []
+
+  constructor(private storageService: StorageHandlerService) { 
+    this.selectedAlbums = storageService.loadFromLocalStorage()
+  }
+  
+  verifyAlbum(album: any): number{
+    const index = this.selectedAlbums.findIndex(currentAlbum => currentAlbum.id === album.id)
+    return index 
+  }
+
+  addAlbum(album: any){
+    const indexOfAlbum = this.verifyAlbum(album)
+    if(indexOfAlbum >= 0){
+      this.selectedAlbums[indexOfAlbum].amount += 1
+    }
+    else{
+    album.amount +=1
+    this.selectedAlbums.push(album)}
+    this.selectedAlbums = this.selectedAlbums.filter(album => album.amount !== 0)
+
+    this.storageService.addToLocalStorage(this.selectedAlbums)
+  }
+
+  removeAlbum(album: any){
+    const indexOfAlbum = this.verifyAlbum(album)
+    if(indexOfAlbum >= 0){
+      this.selectedAlbums[indexOfAlbum].amount -= 1
+    }
+    this.selectedAlbums = this.selectedAlbums.filter(album => album.amount !== 0)
+    this.storageService.addToLocalStorage(this.selectedAlbums)
+    if(album.amount === 0){
+      alert(`Você removeu ${album.title} de ${album.artist} de sua lista`)
+      this.reload()
+    }
+  }
+
+  reload(){
+    location.reload()
+  }
+
+  getTotalPrice() {
+    for(let album of this.selectedAlbums){
+      this.costShop = (+album.amount * +album.price)
+      
+    }
+    return this.costShop
+  }
 
 }

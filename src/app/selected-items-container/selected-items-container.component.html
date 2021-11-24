@@ -1,6 +1,6 @@
 <div>
-  <app-selected-item *ngFor="let album of allSelectedItems; let i = index" [currentAlbum]="album">
-
+  <app-selected-item *ngFor="let album of allSelectedItems; let i = index" [currentAlbum]="album" (amountAlbumChanged)="reloadData()">
   </app-selected-item>
   <app-checkout [allAlbums]="allSelectedItems"></app-checkout>
+
 </div>

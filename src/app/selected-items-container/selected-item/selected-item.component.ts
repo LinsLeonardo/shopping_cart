@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { StorageHandlerService } from 'src/app/storage-handler.service';
 import { Location } from '@angular/common';
+import { AllAlbumsService } from 'src/app/all-albums.service';
 
 @Component({
   selector: 'app-selected-item',
@@ -15,38 +16,25 @@ export class SelectedItemComponent implements OnInit {
   albumAmount!: number;
   @Output() amountAlbumChanged = new EventEmitter()
   
-  constructor(private localStorageService: StorageHandlerService, private location: Location) { }
+  constructor(private localStorageService: StorageHandlerService, private location: Location, private albumService: AllAlbumsService) { }
 
   ngOnInit(): void {
     this.updateValue()
   }
 
-  addUnity() {
-    this.currentAlbum.amount += 1
-    this.localStorageService.addToLocalStorage(this.currentAlbum);
-    this.albumAmount = this.currentAlbum.amount
-    
+  addUnity(currentAlbum: any){
+    this.albumService.addAlbum(currentAlbum)
     this.updateValue()
-    this.replace()
+    this.amountAlbumChanged.emit() 
   }
 
-  removeUnity(){
-    if(this.currentAlbum.amount !== 0){
-      this.currentAlbum.amount -= 1
-      this.localStorageService.removeOneItem(this.currentAlbum);
-
-    }
-    if(this.currentAlbum.amount === 0){
-      this.localStorageService.removeAlbum(this.currentAlbum)
-
-      this.load()
-      alert(`Você removeu ${this.currentAlbum.title} de ${this.currentAlbum.artist} de sua lista!`)
-      
-    }
+  removeUnity(currentAlbum: any){
+    this.albumService.removeAlbum(currentAlbum)
     this.updateValue()
-    this.replace()
-    
+    this.amountAlbumChanged.emit() 
+
   }
+  
 
   updateValue(){
    

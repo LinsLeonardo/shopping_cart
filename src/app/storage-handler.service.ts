@@ -16,46 +16,16 @@ export class StorageHandlerService {
     const itemsFromLocalStorage: any[] = JSON.parse(localStorage.getItem("selectedItems") ?? '[]')
     return itemsFromLocalStorage
   }
+  addToLocalStorage(albums: any[]){
+    localStorage.setItem("selectedItems", JSON.stringify(albums))
+  }
 
-  addToLocalStorage(currentAlbum: any){
-    const currentIndex = this.verifyStorage(currentAlbum.id)
+  clearStorage(){
     const itemsFromLocalStorage = this.loadFromLocalStorage()
-    if(currentIndex >= 0){
-      let newAmount = itemsFromLocalStorage[currentIndex].amount 
-      newAmount += 1
-      itemsFromLocalStorage[currentIndex].amount = newAmount
-    }
-    else {
-      let newAmount = currentAlbum.amount 
-      newAmount += 1
-      currentAlbum.amount = newAmount
-      itemsFromLocalStorage.push(currentAlbum)
-    }
+    itemsFromLocalStorage.forEach(album => album.amount = 0)    
     localStorage.setItem("selectedItems", JSON.stringify(itemsFromLocalStorage))
 
-    }
-
-    removeOneItem(currentAlbum:any){
-      const currentIndex = this.verifyStorage(currentAlbum.id)
-      const itemsFromLocalStorage = this.loadFromLocalStorage()
-      let newAmount = itemsFromLocalStorage[currentIndex].amount 
-      newAmount -= 1
-      itemsFromLocalStorage[currentIndex].amount = newAmount
-      localStorage.setItem("selectedItems", JSON.stringify(itemsFromLocalStorage))
-    }
-
-    removeAlbum(currentAlbum: any){
-      const itemsFromLocalStorage = this.loadFromLocalStorage()
-      const newItems = itemsFromLocalStorage.filter(album => album.amount !== 0)
-      localStorage.setItem("selectedItems", JSON.stringify(newItems))
-    }
-
-    clearStorage(){
-      const itemsFromLocalStorage = this.loadFromLocalStorage()
-      itemsFromLocalStorage.forEach(album => album.amount = 0)    
-      localStorage.setItem("selectedItems", JSON.stringify(itemsFromLocalStorage))
-
-      localStorage.removeItem("selectedItems")
+    localStorage.removeItem("selectedItems")
     }
   }
 

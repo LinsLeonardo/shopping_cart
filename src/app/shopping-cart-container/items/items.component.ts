@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { AllAlbumsService } from 'src/app/all-albums.service';
 import { StorageHandlerService } from 'src/app/storage-handler.service';
 
 @Component({
@@ -13,7 +14,7 @@ export class ItemsComponent implements OnInit {
   @Input() currentAlbum!: any;
   nome!: string; 
   valor!: string; 
-  constructor(private localStorageService: StorageHandlerService) {
+  constructor(private localStorageService: StorageHandlerService, private albumService: AllAlbumsService) {
 
    }
 
@@ -21,10 +22,10 @@ export class ItemsComponent implements OnInit {
 
   }
 
-  saveOnStorage(){
-    this.localStorageService.addToLocalStorage(this.currentAlbum)
-
+  addToSelectedList(currentAlbum: any){
     alert(`O álbum ${this.currentAlbum.title} de ${this.currentAlbum.artist} foi adicionado ao seu carrinho!`)
+    this.albumService.addAlbum(currentAlbum)
   }
+  
 
 }

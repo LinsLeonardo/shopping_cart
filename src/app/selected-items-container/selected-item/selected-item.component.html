@@ -9,9 +9,10 @@
     <p class="total">Total: R$ {{totalPrice}},00</p>
 
     <div class="operation">
-      <button class="operator" (click)="removeUnity()">-</button>
+      <button class="operator" (click)="removeUnity(currentAlbum)">-</button>
       <p>{{currentAlbum.amount}}</p>
-      <button class="operator" (click)="addUnity()">+</button>
+      <button class="operator" (click)="addUnity(currentAlbum)">+</button>
+
     </div>
 
   </div>
