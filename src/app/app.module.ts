@@ -11,10 +11,12 @@ import { SelectedItemsContainerComponent } from './selected-items-container/sele
 import { SelectedItemComponent } from './selected-items-container/selected-item/selected-item.component';
 import { CheckoutComponent } from './selected-items-container/checkout/checkout.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormCheckoutComponent } from './selected-items-container/form-checkout/form-checkout.component';
 
 const appRoutes: Routes = [
   {path: '', component: ShoppingCartContainerComponent},
-  {path: 'carrinho', component: SelectedItemsContainerComponent}
+  {path: 'carrinho', component: SelectedItemsContainerComponent},
+  {path: 'formulario', component: FormCheckoutComponent}
 ]
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ const appRoutes: Routes = [
     FooterComponent,
     SelectedItemsContainerComponent,
     SelectedItemComponent,
-    CheckoutComponent
+    CheckoutComponent,
+    FormCheckoutComponent
   ],
   imports: [
     BrowserModule,

@@ -21,7 +21,6 @@ export class CheckoutComponent implements OnInit, OnChanges {
    }
 
   ngOnInit(): void {
-
     
   }
 
@@ -46,8 +45,14 @@ export class CheckoutComponent implements OnInit, OnChanges {
   }
 
   endShop(){
-    alert(`Obrigado por sua compra! Seu pedido está sendo preparado :)`)
-    this.localStorageService.clearStorage()
-    location.replace('/')
+    if(this.allAlbums.length > 0){
+      this.route.navigate(['/formulario'])
+    } else {
+      alert('Seu carrinho está vazio! Adicione algum item para prosseguir!')
+    }
+    
+    // alert(`Obrigado por sua compra! Seu pedido está sendo preparado :)`)
+    // this.localStorageService.clearStorage()
+    // location.replace('/')
   }
 }

@@ -1,0 +1,95 @@
+form {
+  min-height: 95vh;
+}
+h1 {
+  font-size: 1.7em;
+  color: white;
+  font-weight: bold;
+}
+
+.container {
+  padding: 15px;
+  width: 800px;
+  background-color: rgba(255, 255, 255, 0.363);
+  margin: 70px auto;
+  text-align: center;
+}
+
+.img {
+  filter: brightness(100);
+}
+
+nav {
+  max-width: 60px;
+}
+
+img:hover {
+  cursor: pointer;
+  filter: brightness(100);
+}
+div.form-group {
+  margin-top: 10px;
+}
+input {
+  background-color: rgba(255, 255, 255, 0.849);
+
+  padding: 2%;
+  width: 60%;
+  height: 4px;
+  border: none;
+}
+
+button {
+  width: 20%;
+  height: 3em;
+  background-color: rgba(255, 255, 255, 0.363);
+  color: white;
+  box-shadow: 2px 2px 15px 1px rgba(255, 255, 255, 0.294);
+  font-size: 1.1em;
+  font-weight: bold;
+  align-self: center;
+  justify-self: center;
+  border-style: none;
+  margin-bottom: 10px;
+  margin-top: 25px;
+}
+
+button:hover {
+  background-color: #cd8d7b;
+  font-size: 1.1em;
+}
+
+.error-message {
+  color: white;
+  margin-top: 5px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 426px) {
+  .container {
+    max-width: 80%;
+  }
+  input {
+    width: 70%;
+    height: 25%;
+  }
+
+  img {
+    height: 30px;
+    width: 30px;
+    margin-bottom: 10px;
+  }
+  h1 {
+    font-size: 1.2em;
+  }
+
+  button {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 427px) and (max-width: 769px) {
+  .container {
+    max-width: 80%;
+  }
+}

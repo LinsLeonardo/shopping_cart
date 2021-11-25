@@ -1,0 +1,36 @@
+<form [formGroup]="checkoutForm" (ngSubmit)="submit()">
+
+  <div class="container">
+
+    <nav class="return"><img class="img" src="../../../assets/return-64.png" alt="seta de retornar" width="50" height="50" (click)="backShopping()"></nav>
+
+    <h1>Número de Items - {{totalAmount}}</h1>
+    <h1>Valor Total - R${{totalPrice}},00</h1>
+
+    <div class="form-group">
+      <input type="text" id="name" required formControlName="name" placeholder="Nome completo" />
+    </div>
+    <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+      <div class="error-message" *ngIf="name?.errors?.['required']">O nome é obrigatório</div>
+      <div class="error-message" *ngIf="name?.errors?.['minlength']">O nome precisa ter 5 caracteres</div>
+    </div>
+
+    <div class="form-group">
+      <input type="text" id="adress" required formControlName="adress" placeholder="Nome da rua, 00" />
+    </div>
+    <div *ngIf="adress?.invalid && (adress?.dirty || adress?.touched)">
+      <div class="error-message" *ngIf="adress?.errors?.['required']">O endereço é obrigatório</div>
+      <div class="error-message" *ngIf="adress?.errors?.['minlength']">O endereço precisa ter 10 caracteres</div>
+    </div>
+    <div class="form-group">
+      <input type="text" id="phone" required formControlName="phone" placeholder="Telefone: (XX) X XXXX-XXXX" />
+    </div>
+    <div *ngIf="phone?.invalid && (phone?.dirty || phone?.touched)">
+      <div class="error-message" *ngIf="phone?.errors?.['required']">O telefone é obrigatório</div>
+
+    </div>
+    <button type="submit" [disabled]="!checkoutForm.valid">Finalizar compra</button>
+  </div>
+
+
+</form>
