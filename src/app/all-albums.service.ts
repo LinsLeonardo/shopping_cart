@@ -4,7 +4,6 @@ import { Location } from '@angular/common';
 import { StorageHandlerService } from './storage-handler.service';
 
 
-// TODO: COLOCAR ID EM TODOS OS ITEMS 
 
 @Injectable({
   providedIn: 'root'
@@ -59,10 +58,7 @@ export class AllAlbumsService {
     }
     this.selectedAlbums = this.selectedAlbums.filter(album => album.amount !== 0)
     this.storageService.addToLocalStorage(this.selectedAlbums)
-    if(album.amount === 0){
-      alert(`Você removeu ${album.title} de ${album.artist} de sua lista`)
-      this.reload()
-    }
+    
   }
 
   reload(){
